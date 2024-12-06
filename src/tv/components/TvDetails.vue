@@ -7,13 +7,13 @@ import axios from 'axios';
 const tv = ref(null);
 const error = ref(null);
 const route = useRoute();
-const api_key = 'df47d5296dfd08d97ac5519faa2478ad'; // Asegúrate de reemplazar esto con tu clave API real
+const api_key = 'df47d5296dfd08d97ac5519faa2478ad'; 
 
 const fetchtvDetails = async () => {
-    const tvId = route.params.id; // Obtener el ID de la película desde los parámetros de la ruta
+    const tvId = route.params.id;
     try {
         const response = await axios.get(`https://api.themoviedb.org/3/tv/${tvId}?api_key=${api_key}`);
-        tv.value = response.data; // Almacenar los datos obtenidos en la variable reactiva
+        tv.value = response.data;
     } catch (err) {
         error.value = 'Error al obtener los detalles de la película: ' + err.message;
     }
